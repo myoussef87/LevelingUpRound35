@@ -32,7 +32,15 @@ public class TestClass {
     public void test2()
     {
         driver.get("https://duckduckgo.com/");
-        homePage.checkTitle("Google");
+        homePage.checkPresenceOfLogo();
+    }
+
+    @Test
+    @Description("Search for Selenium on HomePage")
+    public void test3()
+    {
+        driver.get("https://duckduckgo.com/");
+        homePage.search("Selenium WebDriver").checkLink("https://www.selenium.dev/documentation/webdriver/");
     }
 
     @AfterMethod
