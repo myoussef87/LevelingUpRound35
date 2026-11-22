@@ -19,7 +19,8 @@ public class TestClass {
     @Test
     public void test1()
     {
-        driver.get("https://selenium.dev");
+        driver.get("https://duckduckgo.com/");
+
     }
 
     @AfterMethod
