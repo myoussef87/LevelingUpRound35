@@ -11,26 +11,26 @@ import org.testng.Assert;
 import java.time.Duration;
 
 
-public class HomePage {
+public class HomePageDuckGo {
     private final WebDriver driver;
-    public HomePage(WebDriver driver) {
+    public HomePageDuckGo(WebDriver driver) {
         this.driver = driver;
     }
 
     // The locators for these elements should only be defined once.
-    By logo= new By.ByXPath("//picture//img[@alt='DuckDuckGo']");
-    By seachTextBox= new By.ByXPath("//textarea[@name='q']");
-    By seachBtn= new By.ByXPath("//button[@type='submit' and @data-react-aria-pressable='true']");
+    By imglogo = new By.ByXPath("//picture//img[@alt='DuckDuckGo']");
+    By txtSearchBox = new By.ByXPath("//textarea[@name='q']");
+    By btnSearch = new By.ByXPath("//button[@type='submit' and @data-react-aria-pressable='true']");
 
 
 
     //Actions
-    public SearchResultsPage search(String searchText){
-        driver.findElement(seachTextBox).sendKeys(searchText);
+    public SearchResultsPageDuckGo search(String searchText){
+        driver.findElement(txtSearchBox).sendKeys(searchText);
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement message = wait.until(ExpectedConditions.presenceOfElementLocated(seachBtn));
-        driver.findElement(seachBtn).click();
-        return new SearchResultsPage(driver);
+        wait.until(ExpectedConditions.presenceOfElementLocated(btnSearch));
+        driver.findElement(btnSearch).click();
+        return new SearchResultsPageDuckGo(driver);
     }
 
 
@@ -42,6 +42,6 @@ public class HomePage {
 
     public void checkPresenceOfLogo()
     {
-        Assert.assertTrue(driver.findElement(logo).isDisplayed());
+        Assert.assertTrue(driver.findElement(imglogo).isDisplayed());
     }
 }
