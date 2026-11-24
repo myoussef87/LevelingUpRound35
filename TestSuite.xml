@@ -8,8 +8,7 @@
 
     <test name="All Test Classes">
         <packages>
-            <package name="tests"/>
-            <package name="tests.*"/>
+            <package name="testPackage"/>
         </packages>
     </test>
 
