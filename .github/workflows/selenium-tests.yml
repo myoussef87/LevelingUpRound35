@@ -50,7 +50,7 @@ jobs:
 
       - name: Execute TestNG tests
         # Explicit selection bypasses the suite's incorrect packages and unsafe parallelism.
-        run: mvn -B clean test -Dsurefire.suiteXmlFiles=TestSuite.xml -DfailIfNoTests=true
+        run: mvn -B clean test -DfailIfNoTests=true
         env:
           SELENIUM_GRID_URL: http://localhost:4444
 
